@@ -11,17 +11,17 @@ namespace EmpEspace
         private double sueldoBasico;
         private Cargos cargo;
 
-        public Empleados(string? nombre, string? apellido, DateTime fechaNac, char estadoCivil, char genero, DateTime fechaIngreso, double sueldoBasico, Cargos cargo)
-        {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.fechaNac = fechaNac;
-            this.estadoCivil = estadoCivil;
-            this.genero = genero;
-            this.fechaIngreso = fechaIngreso;
-            this.sueldoBasico = sueldoBasico;
-            this.cargo = cargo;
-        }
+        // public Empleados(string? nombre, string? apellido, DateTime fechaNac, char estadoCivil, char genero, DateTime fechaIngreso, double sueldoBasico, Cargos cargo)
+        // {
+        //     this.nombre = nombre;
+        //     this.apellido = apellido;
+        //     this.fechaNac = fechaNac;
+        //     this.estadoCivil = estadoCivil;
+        //     this.genero = genero;
+        //     this.fechaIngreso = fechaIngreso;
+        //     this.sueldoBasico = sueldoBasico;
+        //     this.cargo = cargo;
+        // }
 
         public string? Nombre { get => nombre; set => nombre = value; }
         public string? Apellido { get => apellido; set => apellido = value; }
@@ -34,7 +34,7 @@ namespace EmpEspace
         internal Cargos Cargo { get => cargo; set => cargo = value; }
         
         //metodos de la clase
-        public int antiguedad(DateTime fechaNac)
+        public int antiguedad(DateTime fechaIngreso)
         {
             int anti;
 
@@ -66,7 +66,7 @@ namespace EmpEspace
             return edad;
         }
 
-        public void jubilacion(char genero)
+        public int jubilacion(char genero, DateTime fechaNac)
         {
             int faltan;
             
@@ -78,9 +78,10 @@ namespace EmpEspace
             {
                 faltan=60-edad(fechaNac);
             }
+            return faltan;
         }
 
-        public double Adicional(double sueldoBasico)
+        public double Adicional(double sueldoBasico, DateTime fechaIngreso, Cargos cargos, char estadoCivil)
         {
             double adicional=0;
             if (antiguedad(fechaIngreso)<20)
@@ -103,9 +104,9 @@ namespace EmpEspace
             }
             return adicional;
         }
-        public double salario()
+        public double salario(double sueldoBasico, DateTime fechaIngreso, Cargos cargos, char estadoCivil)
         {
-            return sueldoBasico+Adicional(sueldoBasico);
+            return sueldoBasico+Adicional( sueldoBasico,  fechaIngreso,  cargos,  estadoCivil);
         }
 
 
@@ -114,11 +115,11 @@ namespace EmpEspace
 
     public enum Cargos
     {
-        Auxiliar = 1,
-        Administrativo = 2,
-        Ingeniero = 3,
-        Especialista = 4,
-        Investigador = 5
+        Auxiliar = 100000,
+        Administrativo = 120000,
+        Ingeniero = 200000,
+        Especialista = 150000,
+        Investigador = 170000
     }
     
 }
