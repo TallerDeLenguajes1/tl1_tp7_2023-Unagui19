@@ -54,7 +54,7 @@ namespace EmpEspace
         {
             int edad;
 
-            if (fechaNac.Day >= DateTime.Now.Day || fechaNac.Month >= DateTime.Now.Month)
+            if (fechaNac.Day <= DateTime.Now.Day || fechaNac.Month >= DateTime.Now.Month)
             {
                 edad=DateTime.Now.Year-fechaNac.Year;
             }

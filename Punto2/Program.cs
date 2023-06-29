@@ -20,7 +20,7 @@ Console.WriteLine("Cargo: "+empleado1.Cargo);
 Console.WriteLine("Sueldo básico: "+empleado1.SueldoBasico);
 Console.WriteLine("Fecha de ingreso: "+empleado1.FechaIngreso);
 Console.WriteLine("Edad:"+empleado1.edad(empleado1.FechaNac));
-Console.WriteLine("Faltan "+empleado1.jubilacion(empleado1.Genero,empleado1.FechaIngreso)+" años para jubilarese\n");
+Console.WriteLine("Faltan "+empleado1.jubilacion(empleado1.Genero,empleado1.FechaNac)+" años para jubilarese\n");
 Console.WriteLine("Edad:"+empleado1.salario(empleado1.SueldoBasico, empleado1.FechaIngreso, empleado1.Cargo, empleado1.EstadoCivil));
 
 
@@ -45,7 +45,7 @@ Console.WriteLine("Cargo: "+empleado2.Cargo);
 Console.WriteLine("Sueldo básico: "+empleado2.SueldoBasico);
 Console.WriteLine("Fecha de ingreso: "+empleado2.FechaIngreso);
 Console.WriteLine("Edad:"+empleado2.edad(empleado2.FechaNac));
-Console.WriteLine("Faltan "+empleado2.jubilacion(empleado2.Genero,empleado2.FechaIngreso)+" años para jubilarese\n");
+Console.WriteLine("Faltan "+empleado2.jubilacion(empleado2.Genero,empleado2.FechaNac)+" años para jubilarese\n");
 Console.WriteLine("Salario:"+empleado2.salario(empleado2.SueldoBasico, empleado2.FechaIngreso, empleado2.Cargo, empleado2.EstadoCivil));
 
 
@@ -70,3 +70,61 @@ Console.WriteLine("Fecha de ingreso: "+empleado3.FechaIngreso);
 Console.WriteLine("Edad:"+empleado3.edad(empleado3.FechaNac));
 Console.WriteLine("Faltan "+empleado3.jubilacion(empleado3.Genero,empleado3.FechaIngreso)+" años para jubilarese\n");
 Console.WriteLine("Salario:"+empleado3.salario(empleado3.SueldoBasico, empleado3.FechaIngreso, empleado3.Cargo, empleado3.EstadoCivil));
+
+Console.WriteLine("\n");
+
+salarioTotal();
+
+if (empleado3.jubilacion(empleado3.Genero,empleado3.FechaIngreso)<empleado2.jubilacion(empleado2.Genero,empleado2.FechaIngreso) && empleado3.jubilacion(empleado3.Genero,empleado3.FechaIngreso)<empleado1.jubilacion(empleado1.Genero,empleado1.FechaIngreso))
+{
+    Console.WriteLine("\n\tEmpleado 3 mas cerca de jubilarse\n");
+    Console.WriteLine("Nombre: "+empleado3.Nombre);
+    Console.WriteLine("Apellido: "+empleado3.Apellido);
+    Console.WriteLine("Fecha de nacimiento: "+empleado3.FechaNac);
+    Console.WriteLine("Genero: "+empleado3.Genero+" (M: masculino, F: femenino)");
+    Console.WriteLine("Estado Civil: "+empleado3.EstadoCivil+" (C: casado, S: soltero)");
+    Console.WriteLine("Cargo: "+empleado3.Cargo);
+    Console.WriteLine("Sueldo básico: "+empleado3.SueldoBasico);
+    Console.WriteLine("Fecha de ingreso: "+empleado3.FechaIngreso);
+    Console.WriteLine("Edad:"+empleado3.edad(empleado3.FechaNac));
+    Console.WriteLine("Faltan "+empleado3.jubilacion(empleado3.Genero,empleado3.FechaNac)+" años para jubilarese\n");
+    Console.WriteLine("Salario:"+empleado3.salario(empleado3.SueldoBasico, empleado3.FechaIngreso, empleado3.Cargo, empleado3.EstadoCivil));
+}
+else if(empleado1.jubilacion(empleado1.Genero,empleado1.FechaIngreso)<empleado2.jubilacion(empleado2.Genero,empleado2.FechaIngreso))
+{
+    Console.WriteLine("\n\tEmpleado 1 mas cerca de jubilarse\n");
+    Console.WriteLine("Nombre: "+empleado1.Nombre);
+    Console.WriteLine("Apellido: "+empleado1.Apellido);
+    Console.WriteLine("Fecha de nacimiento: "+empleado1.FechaNac);
+    Console.WriteLine("Genero: "+empleado1.Genero+" (M: masculino, F: femenino)");
+    Console.WriteLine("Estado Civil: "+empleado1.EstadoCivil+" (C: casado, S: soltero)");
+    Console.WriteLine("Cargo: "+empleado1.Cargo);
+    Console.WriteLine("Sueldo básico: "+empleado1.SueldoBasico);
+    Console.WriteLine("Fecha de ingreso: "+empleado1.FechaIngreso);
+    Console.WriteLine("Edad:"+empleado1.edad(empleado1.FechaNac));
+    Console.WriteLine("Faltan "+empleado1.jubilacion(empleado1.Genero,empleado1.FechaNac)+" años para jubilarese\n");
+    Console.WriteLine("Salario:"+empleado1.salario(empleado1.SueldoBasico, empleado1.FechaIngreso, empleado1.Cargo, empleado1.EstadoCivil));
+}
+else
+{
+    Console.WriteLine("\n\tEmpleado 2 mas cerca de jubilarse\n");
+    Console.WriteLine("Nombre: "+empleado2.Nombre);
+    Console.WriteLine("Apellido: "+empleado2.Apellido);
+    Console.WriteLine("Fecha de nacimiento: "+empleado2.FechaNac);
+    Console.WriteLine("Genero: "+empleado2.Genero+" (M: masculino, F: femenino)");
+    Console.WriteLine("Estado Civil: "+empleado2.EstadoCivil+" (C: casado, S: soltero)");
+    Console.WriteLine("Cargo: "+empleado2.Cargo);
+    Console.WriteLine("Sueldo básico: "+empleado2.SueldoBasico);
+    Console.WriteLine("Fecha de ingreso: "+empleado2.FechaIngreso);
+    Console.WriteLine("Edad:"+empleado2.edad(empleado2.FechaNac));
+    Console.WriteLine("Faltan "+empleado2.jubilacion(empleado2.Genero,empleado2.FechaNac)+" años para jubilarese\n");
+    Console.WriteLine("Salario:"+empleado2.salario(empleado2.SueldoBasico, empleado2.FechaIngreso, empleado2.Cargo, empleado2.EstadoCivil));
+}
+
+
+
+void salarioTotal()
+{
+    double total=empleado1.salario(empleado1.SueldoBasico, empleado1.FechaIngreso, empleado1.Cargo, empleado1.EstadoCivil) + empleado2.salario(empleado2.SueldoBasico, empleado2.FechaIngreso, empleado2.Cargo, empleado2.EstadoCivil) + empleado3.salario(empleado3.SueldoBasico, empleado3.FechaIngreso, empleado3.Cargo, empleado3.EstadoCivil);
+    Console.WriteLine("Total de salarios= "+total+" pesos");
+}
